@@ -1,6 +1,7 @@
 package assignment1;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class LEKCompetitor {
 
@@ -8,15 +9,15 @@ public class LEKCompetitor {
 	private String competitorExperience;
 	private String competitorLocation;
 	private Name competitorName;
-	private String favouriteKnit;
+	private Date dob;
 	private int [] scores = new int [5];	
 
-	public LEKCompetitor (int competitorNumber, Name competitorName, String competitorExperience, String competitorLocation, String favouriteKnit, int [] scores) {		
+	public LEKCompetitor (int competitorNumber, Name competitorName, String competitorExperience, String competitorLocation, Date dob, int [] scores) {		
 		this.competitorNumber = competitorNumber;
 		this.competitorExperience = competitorExperience;
 		this.competitorLocation = competitorLocation;
 		this.competitorName = competitorName;
-		this.favouriteKnit = favouriteKnit;
+		this.dob = dob;
 		this.scores = scores;
 	}
 	//get the array of scores
@@ -39,9 +40,9 @@ public class LEKCompetitor {
 	public Name getCompetitorName() {
 		  return competitorName; 
 	}
-	//get the competitor's favourite knit
-	public String getFavouriteKnit() {
-		  return favouriteKnit; 
+	//get the competitor's date of birth
+	public Date getDOB() {
+		  return dob; 
 	}
 	//get the competitor's highest three scores received
 	public int [] getTopThree() {
@@ -148,7 +149,7 @@ public class LEKCompetitor {
 				+ competitorName.getFullName() + " is an "
 				+ competitorExperience + " knitter and has come from "
 				+ competitorLocation + " to compete in the competition. \n"
-				+ "Their favourite thing they have knitted prior to entering the competition was a '" + favouriteKnit + "'.\n"
+				//+ "Their favourite thing they have knitted prior to entering the competition was a '" + favouriteKnit + "'.\n"
 				+ competitorName.getFirstName() + " received the following scores for each round: "
 				+ getDisplayScores() + ".\n"
 				+ "This gives " + competitorName.getFirstName() 
