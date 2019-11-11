@@ -13,6 +13,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 public class CompetitorList {
 
@@ -38,7 +41,7 @@ public class CompetitorList {
 			report += String.format("%-40s", c.getCompetitorName().getFullName() );
 			report += String.format("%-20s", c.getCompetitorExperience());
 			report += String.format("%-20s", c.getCompetitorLocation());
-			report += String.format("%-60s", c.getFavouriteKnit());
+			report += String.format("%-60s", c.getDOB());
 			report += String.format("%-20s", c.getDisplayScores());			
 			report += String.format("%-1.1f", c.getOverallScore());
 			report += "\n";
@@ -61,7 +64,7 @@ public class CompetitorList {
 		    fw.write(String.format("%-40s", "Name"));
 		    fw.write(String.format("%-20s", "Experience"));
 		    fw.write(String.format("%-20s", "Location"));
-		    fw.write(String.format("%-60s", "Favourite Knit"));
+		    fw.write(String.format("%-60s", "DOB"));
 		    fw.write(String.format("%-20s", "Scores"));
 		    fw.write(String.format("%-15s", "Overall Score\n"));
 		    fw.write("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
@@ -157,8 +160,12 @@ public class CompetitorList {
 				int competitorNumber = Integer.parseInt(competitorNumberString);
 				String competitorExperience = parts[2];
 				String competitorLocation = parts[3];
-				String favouriteKnit = parts[4];
-
+				String dobString = parts[4];
+				
+				SimpleDateFormat dateFormat = new SimpleDateFormat ("dd/MM/yyyy");
+				Date dob = dateFormat.parse(dobString);
+				
+				
 				int scoresLength = parts.length - 5;
 				String scoresStr[] = new String[scoresLength];
 			
@@ -180,7 +187,7 @@ public class CompetitorList {
 				}
 		
 			//create LEKCompetitor object and add to the list
-			LEKCompetitor c = new LEKCompetitor(competitorNumber, competitorName, competitorExperience, competitorLocation, favouriteKnit, scores);
+			LEKCompetitor c = new LEKCompetitor(competitorNumber, competitorName, competitorExperience, competitorLocation, dob, scores);
 			this.add(c);
 			}
 			//catches if trying to convert String to int
@@ -200,6 +207,9 @@ public class CompetitorList {
 				String error = "Name is missing in  : '" + line
 			                        + "' index position : " + sir.getMessage();
 				System.out.println(error);
+			}
+			catch (ParseException e) {
+				e.printStackTrace();
 			}
 		}
 	}
