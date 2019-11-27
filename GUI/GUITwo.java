@@ -2,16 +2,22 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class GUITwo extends JFrame {
+public class GUITwo extends JFrame implements ActionListener {
+	
+	//the competitor list
+	private CompetitorList compList;
 
 	 //GUI components
 	 JScrollPane scrollList;
 	 JButton submit, showListById, showListByName, close;
 	 JTextArea resultList;
-	 JComboBox<String> competitors;
+	 JComboBox<String> competitionList = new JComboBox<>();
+	 DefaultComboBoxModel<String> compModel = new DefaultComboBoxModel<>();
 
 	 
-	 public GUITwo() {
+	 public GUITwo(CompetitorList list) {
+		 
+		 this.compList = list;
 
 		 //set up window title
 		 setTitle("Competitor Details");
@@ -47,23 +53,24 @@ public class GUITwo extends JFrame {
 		 northPanel.add(new JLabel(" Select Compitition:  "));
 		 
 		 //setup combo box
-		 JComboBox<String> compList = new JComboBox<>();
-		 DefaultComboBoxModel<String> compModel = new DefaultComboBoxModel<>();
+
 		 compModel.addElement("Knitting");
 		 compModel.addElement("Gaming");
 		 compModel.addElement("Dancing");
-		 compList.setModel(compModel);
-		 compList.setEditable(false);
-		 northPanel.add(compList);
+		 competitionList.setModel(compModel);
+		 competitionList.setEditable(false);
+		 northPanel.add(competitionList);
 		 
 		 submit = new JButton("Submit");
 		 northPanel.add(submit);
+		 
+		 //specify action when button is pressed
+		 submit.addActionListener(this);
 
 		 //add north panel to the content pane
 		 this.add(northPanel, BorderLayout.NORTH);
 		 }
-	 
-	 
+	 	 
 	 
 	 private void setupCenterPanel() {
 		 resultList = new JTextArea(15,20);
@@ -91,12 +98,20 @@ public class GUITwo extends JFrame {
 		 southPanel.add(close);
 		 this.add(southPanel, BorderLayout.SOUTH);
 		 }	
+	 
+	 public void actionPerformed(ActionEvent e) {
+		 search();
+	 }
+	 
+	 private void search() {
+		 String competitionSelected = (String)competitionList.getSelectedItem();
 
-//main method call to be moved to manager
-	public static void main(String [] args) {
-		GUITwo g2 = new GUITwo();
-		g2.pack();  
-		g2.setVisible(true);
-	}
-
+		 if(competitionSelected == "Knitting") {
+			 resultList.setText(compList.getAllCompetitors());
+			 }
+			 else
+				 resultList.setText("not found");
+	 }
+	 	
 }
+
