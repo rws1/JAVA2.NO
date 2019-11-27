@@ -3,7 +3,11 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Dimension;
 
-public class GUIThree extends JFrame {
+public class GUIThree extends JFrame implements ActionListener {
+	
+	//the competitor list
+	private CompetitorList compList;
+
 
 	 //GUI components
 	 JScrollPane scrollList;
@@ -15,7 +19,9 @@ public class GUIThree extends JFrame {
 	 JRadioButton fullDeets, shortDeets;
 
 	 
-	 public GUIThree() {
+	 public GUIThree(CompetitorList list) {
+		 
+		 this.compList = list;
 
 		 //set up window title
 		 setTitle("Competitor Details");
@@ -56,17 +62,25 @@ public class GUIThree extends JFrame {
 		 //select panel contains 2 radio buttons
 		 JPanel selectPanel = new JPanel();
 		 selectPanel.setLayout(new GridLayout(2,1));
+		 
 		 fullDeets = new JRadioButton("Full Details");
 		 shortDeets = new JRadioButton("Short Details");
-		 detailsGroup = new ButtonGroup();
+		 fullDeets.setActionCommand("fullDetails");
+		 shortDeets.setActionCommand("shortDetails");
 		 
+		 fullDeets.setSelected(true);
+		 detailsGroup = new ButtonGroup();
 		 detailsGroup.add(fullDeets);
 		 detailsGroup.add(shortDeets);
 		 selectPanel.add(fullDeets);
 		 selectPanel.add(shortDeets);
 		 
+		 
 		 //setup submit button
 		 submit = new JButton("OK");
+		 
+		 //specify action when button is pressed
+		 submit.addActionListener(this);
 		 
 				 
 		 //set up south panel containing 3 previous areas
@@ -112,12 +126,49 @@ public class GUIThree extends JFrame {
 		 southPanel.add(close);
 		 this.add(southPanel, BorderLayout.SOUTH);
 		 }	
+	 
+	 public void actionPerformed(ActionEvent e) {
+		 search();
+	 }
+	 
+	 private void search() {
+		 String searchString = searchField.getText().trim();
+		 String detailsCommand = detailsGroup.getSelection().getActionCommand();
+		 
+		 if(detailsCommand == "fullDetails") {
+		 
+			 if(searchString.length() > 0) {
+				 
+				 //convert user input String searchString to integer
+				 int competitorNumber = Integer.parseInt(searchString);
+				 LEKCompetitor c = compList.findByCompetitorNumber(competitorNumber);
+	
+				 if (c!= null ) {
+					 resultList.setText(c.getFullDetails());
+				 }
+				 else
+					 resultList.setText("not found");
+				 }
+				 else
+					 resultList.setText("no text entered");
+		}
+		 else {
+			 
+		 	if(searchString.length() > 0) {
+			 
+			 //convert user input String searchString to integer
+			 int competitorNumber = Integer.parseInt(searchString);
+			 LEKCompetitor c = compList.findByCompetitorNumber(competitorNumber);
 
-//main method call to be moved to manager
-	public static void main(String [] args) {
-		GUIThree g2 = new GUIThree();
-		g2.pack();  
-		g2.setVisible(true);
-	}
-
+			 if (c!= null ) {
+				 resultList.setText(c.getShortDetails());
+			 }
+			 else
+				 resultList.setText("not found");
+			 }
+			 else
+				 resultList.setText("no text entered");
+		 }
+	 	
+	 }
 }
