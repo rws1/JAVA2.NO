@@ -29,7 +29,7 @@ public class GUITwo extends JFrame {
 		 addWindowListener(new WindowAdapter() {
 			 public void windowClosing(WindowEvent e) {
 			   int confirmed = JOptionPane.showConfirmDialog(null, 
-			        "Are you sure you want to exit?", "Exit Programme", JOptionPane.YES_NO_OPTION);
+			        "Are you sure you want to exit? You're changes will not be saved.", "Exit Programme", JOptionPane.YES_NO_OPTION);
 
 			   if (confirmed == JOptionPane.YES_OPTION) {
 			      dispose();
