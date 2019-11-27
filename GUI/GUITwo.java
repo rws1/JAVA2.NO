@@ -1,114 +1,86 @@
 import java.awt.*;
 import javax.swing.*;
-import java.awt.Dimension;
+import java.awt.event.*;
 
 public class GUITwo extends JFrame {
 
 	 //GUI components
-	 JTextField result;
-	 JTextField searchField;
-	 JButton search;
 	 JScrollPane scrollList;
-	 JButton showListById, showListByName, close;
-	 JTextArea displayList;
-	 JList<String> competitors;
+	 JButton submit, showListById, showListByName, close;
+	 JTextArea resultList;
+	 JComboBox<String> competitors;
 
 	 
-	 
 	 public GUITwo() {
-	 
-	 
-		//set up window title
+
+		 //set up window title
 		 setTitle("Competitor Details");
 		 //disable standard close button
-		 //setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
-		 setDefaultCloseOperation(this.EXIT_ON_CLOSE); //change this to the above when ready
+		 setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
 		 setupSouthPanel();
 		 setupNorthPanel();
 		 setupCenterPanel();
-		 setupWestPanel();
 		 //pack and set visible
 		 pack();
 		 setVisible(true);
-	
+		 setLocationRelativeTo(null); //sets position of JFrame to middle of screen
+		 
+		 //show JOptionpane confirmation when close button pressed
+		 addWindowListener(new WindowAdapter() {
+			 public void windowClosing(WindowEvent e) {
+			   int confirmed = JOptionPane.showConfirmDialog(null, 
+			        "Are you sure you want to exit?", "Exit Programme", JOptionPane.YES_NO_OPTION);
+
+			   if (confirmed == JOptionPane.YES_OPTION) {
+			      dispose();
+			   }
+			 }
+		});
 	 }
-	 
-	 private void setupCenterPanel() {
-		 displayList = new JTextArea(15,20);
-		 displayList.setFont(new Font (Font.MONOSPACED, Font.PLAIN,14));
-		 displayList.setEditable(false);
-		 scrollList = new JScrollPane(displayList);
-		 this.add(scrollList,BorderLayout.CENTER);
-		 }
-	
-	 private void setupWestPanel() {
-		 //setup list panel
-		 JPanel compListPanel = new JPanel();
-		 compListPanel.setLayout(new GridLayout(2,1));
-		 compListPanel.add(new JLabel("Select Competition:"));
-		 //setup list
-		 JList<String> compList = new JList<>();
-		 DefaultListModel<String> compModel = new DefaultListModel<>();
+	 	
+	 private void setupNorthPanel() {
+		 //north panel contains label, combo box and button
+		 JPanel northPanel = new JPanel();
+		 northPanel.setLayout(new GridLayout(1,3));
+		 
+		 //setup label
+		 northPanel.add(new JLabel(" Select Compitition:  "));
+		 
+		 //setup combo box
+		 JComboBox<String> compList = new JComboBox<>();
+		 DefaultComboBoxModel<String> compModel = new DefaultComboBoxModel<>();
 		 compModel.addElement("Knitting");
 		 compModel.addElement("Gaming");
 		 compModel.addElement("Dancing");
 		 compList.setModel(compModel);
-		 compListPanel.add(compList);
+		 compList.setEditable(false);
+		 northPanel.add(compList);
 		 
-		 compList.setPreferredSize(new Dimension(90, 70));
-		 compList.setBorder(BorderFactory.createEtchedBorder());
-		 
-		 
-		 
-		 //set up west panel containing 2 previous areas
-		 JPanel westPanel = new JPanel();
-		 westPanel.setLayout(new GridLayout(2,1));
-		 westPanel.add(compListPanel);
-		 
-		 
-
-		 //add north panel to the content pane
-		 this.add(westPanel, BorderLayout.WEST);
-		 }
-
-		 
-	 
-	
-	 private void setupNorthPanel() {
-		 //search panel contains label, text field and button
-		 JPanel searchPanel = new JPanel();
-		 searchPanel.setLayout(new GridLayout(1,3));
-		 searchPanel.add(new JLabel("Enter ID"));
-		 searchField = new JTextField(5);
-		 searchPanel.add(searchField);
-		 search = new JButton("Search");
-		 searchPanel.add(search);
-		 //specify action when button is pressed
-
-
-		 
-		 
-		 //Set up the area where the results will be displayed.
-		 result= new JTextField(25);
-		 result.setEditable(false);
-
-		 //set up north panel containing 2 previous areas
-		 JPanel northPanel = new JPanel();
-		 northPanel.setLayout(new GridLayout(2,1));
-		 northPanel.add(searchPanel);
-		 northPanel.add(result);
+		 submit = new JButton("Submit");
+		 northPanel.add(submit);
 
 		 //add north panel to the content pane
 		 this.add(northPanel, BorderLayout.NORTH);
 		 }
+	 
+	 
+	 
+	 private void setupCenterPanel() {
+		 resultList = new JTextArea(15,20);
+		 resultList.setFont(new Font (Font.MONOSPACED, Font.PLAIN,14));
+		 resultList.setEditable(false);
+		 scrollList = new JScrollPane(resultList);
+		 this.add(scrollList,BorderLayout.CENTER);
+		 }
 
+	 
 	 private void setupSouthPanel() {
-		 //add north panel containing some buttons
+		 //add south panel containing some buttons
 		 JPanel southPanel = new JPanel();
-		 showListById = new JButton("List By ID");
+		 showListById = new JButton("Order By ID");
 
 
-		 showListByName = new JButton("List By Name");
+		 showListByName = new JButton("Order By Name");
 
 
 		 close = new JButton("Close");
@@ -120,15 +92,11 @@ public class GUITwo extends JFrame {
 		 this.add(southPanel, BorderLayout.SOUTH);
 		 }	
 
-
-public static void main(String [] args)
-{
-	GUITwo bf = new GUITwo();
-	//bf.setSize(300,320);
-	//pack works out the best size of the frame for itself
-	//based on what components there are
-	bf.pack();  
-	bf.setVisible(true);
-}
+//main method call to be moved to manager
+	public static void main(String [] args) {
+		GUITwo g2 = new GUITwo();
+		g2.pack();  
+		g2.setVisible(true);
+	}
 
 }
