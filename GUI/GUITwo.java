@@ -9,7 +9,7 @@ public class GUITwo extends JFrame implements ActionListener {
 
 	 //GUI components
 	 JScrollPane scrollList;
-	 JButton submit, showListById, showListByName, close;
+	 JButton submit, orderListByID, orderListByName, close;
 	 JTextArea resultList;
 	 JComboBox<String> competitionList = new JComboBox<>();
 	 DefaultComboBoxModel<String> compModel = new DefaultComboBoxModel<>();
@@ -84,23 +84,30 @@ public class GUITwo extends JFrame implements ActionListener {
 	 private void setupSouthPanel() {
 		 //add south panel containing some buttons
 		 JPanel southPanel = new JPanel();
-		 showListById = new JButton("Order By ID");
-
-
-		 showListByName = new JButton("Order By Name");
-
-
+		 orderListByID = new JButton("Order By ID");
+		 orderListByName = new JButton("Order By Name");
 		 close = new JButton("Close");
 
-
-		 southPanel.add (showListById);
-		 southPanel.add(showListByName);
+		 southPanel.add (orderListByID);
+		 southPanel.add(orderListByName);
 		 southPanel.add(close);
+		 //specify action when button is pressed
+		 orderListByID.addActionListener(this);
+		 orderListByName.addActionListener(this);
+		 close.addActionListener(this);
 		 this.add(southPanel, BorderLayout.SOUTH);
 		 }	
 	 
 	 public void actionPerformed(ActionEvent e) {
-		 search();
+		 if (e.getSource() == submit) {
+	    		search();
+	    	}
+	    	else if (e.getSource() == orderListByID) {
+	    		sortByID();
+	    	}
+	    	else if (e.getSource() == orderListByName ) {
+	    		sortByName();
+	    	}
 	 }
 	 
 	 private void search() {
@@ -112,6 +119,25 @@ public class GUITwo extends JFrame implements ActionListener {
 			 else
 				 resultList.setText("not found");
 	 }
+	 
+	 public void sortByName() {
+		 String competitionSelected = (String)competitionList.getSelectedItem();
+		 	if(competitionSelected == "Knitting") {
+		 		resultList.setText(compList.listByName());
+		 	 }
+			 else
+				 resultList.setText("not found");
+	 }
+	 
+	 public void sortByID() {
+		 String competitionSelected = (String)competitionList.getSelectedItem();
+		 	if(competitionSelected == "Knitting") {
+		 		resultList.setText(compList.listByID());
+		 	 }
+			 else
+				 resultList.setText("not found");
+	 }
+	 
 	 	
 }
 
