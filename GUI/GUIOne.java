@@ -147,7 +147,7 @@ public class GUIOne extends JFrame implements ActionListener {
 	 }
 	 
 	 private void search() {
-		 System.out.println("search");
+		//System.out.println("search");
 		 String searchString = searchField.getText().trim();
 		 
 		 if(searchString.length() > 0) {
@@ -161,7 +161,7 @@ public class GUIOne extends JFrame implements ActionListener {
 				 nameField.setText(c.getCompetitorName().getFullName());
 				 locationField.setText(c.getCompetitorLocation());
 				 levelField.setText(c.getCompetitorExperience());
-				  for (int i = 0; i < 3; i++) {
+				  for (int i = 0; i < 5; i++) {
 					  scoresField[i].setText("");
 					  }
 					  int [] scores = c.getScoreArray();
@@ -184,12 +184,20 @@ public class GUIOne extends JFrame implements ActionListener {
 	 
 	  //updates scores
 	  private void update() {
-		  System.out.println("update");
-//		  String searchString = searchField.getText().trim();
-//		  int competitorNumber = Integer.parseInt(searchString);
-//		  LEKCompetitor c = compList.findByCompetitorNumber(competitorNumber);
-//		  
-
+		  //System.out.println("update");
+		  String searchString = searchField.getText().trim();
+		  int competitorNumber = Integer.parseInt(searchString);
+		  LEKCompetitor c = compList.findByCompetitorNumber(competitorNumber);
+		  String newScoresStr[] = new String[5];
+		  for (int i = 0; i < 5; i++) {
+			  newScoresStr[i]=scoresField[i].getText();
+		  }
+		  int newScores[] = new int[5];
+		  	for(int i = 0; i < 5; i++ ) {
+		  		newScores[i] = Integer.parseInt(newScoresStr[i]);
+		  	}
+		  c.setCompetitorScores(newScores);
+		  overallScore.setText(String.valueOf(c.getOverallScore()));
 	  }
 	  
 	  private void clear() {
