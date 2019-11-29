@@ -1,31 +1,19 @@
 package lekrws1rrp3Assignment2;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Arrays;
-import java.util.Scanner;
 
-public class Knitter extends Competitor implements Competitordetails {
+public class Knitter extends Competitor implements Competitordetails{
 	
-	private Scanner scanner;
-	private String favouriteKnit;
-	
-	public Knitter (int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation, String favouriteKnit,
+	public Knitter (String competition, int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,int competitorAge,
 			int[] competitorScores) {
 
-			super (competitorNumber, competitorName, competitorLevel, competitorLocation, competitorScores);
-			this.favouriteKnit = favouriteKnit;
-			}
-	
-			public String getFavouriteKnit() {
-				return favouriteKnit;
-			}
-		
-			public void setFavouriteKnit(String favouriteKnit) {
-				this.favouriteKnit = favouriteKnit;
-			} 
+			super (competition, competitorNumber, competitorName, competitorLevel, competitorLocation, competitorAge, competitorScores);
 			
 						
+			}
+			
+		
+			
 			//get the competitor's highest three scores received
 			public int [] getTopThree() {
 				Arrays.sort(competitorScores);
@@ -134,6 +122,7 @@ public class Knitter extends Competitor implements Competitordetails {
 			}
 			
 			
+					
 			
 
 			//display full details
@@ -142,29 +131,13 @@ public class Knitter extends Competitor implements Competitordetails {
 						+ competitorName.getFullName() + " is an "
 						+ competitorLevel + " knitter and has come from "
 						+ competitorLocation + " to compete in the competition. \n"
-						+ "Their favourite thing they have knitted prior to entering the competition was a '" + favouriteKnit + "'.\n"
+						//+ "Their favourite thing they have knitted prior to entering the competition was a '" + favouriteKnit + "'.\n"
 						+ competitorName.getfirstName() + " received the following scores for each round: "
 						+ getDisplayScores() + ".\n"
 						+ "This gives " + competitorName.getfirstName() 
 						+ " an overall score of " + String.format("%.1f",getOverallScore()) + ".";
 			}
 			
-			public void readFile(String filename) {
-				try {
-					File f = new File("CompetitorInput");
-					scanner = new Scanner(f);
-					while (scanner.hasNextLine()) {
-						String inputLine = scanner.nextLine();
-						if (inputLine.length() != 0) {
-							processLine(inputLine);
-						}
-
-					}
-
-				} catch (FileNotFoundException fnf) {
-					System.out.println(filename + " not found ");
-					System.exit(0);
-				}
-			}
+				
 
 }

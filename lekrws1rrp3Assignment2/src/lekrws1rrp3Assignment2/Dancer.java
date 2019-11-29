@@ -1,28 +1,49 @@
 package lekrws1rrp3Assignment2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Dancer extends Competitor implements Competitordetails{
-	private int numberOfAppearances;
-	public Dancer (int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,
-			int[] competitorScores, int numberOfAppearances) {
+	
+	public Dancer (String competition, int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,int competitorAge,
+			int[] competitorScores) {
 
-			super (competitorNumber, competitorName, competitorLevel, competitorLocation, competitorScores);
-			this.numberOfAppearances = NoA;
+			super (competition, competitorNumber, competitorName, competitorLevel, competitorLocation, competitorAge, competitorScores);
+			
 
 			}
 	
 	
-	public void setNumberOfAppearances(int numberOfAppearances) {
-		this.numberOfAppearances = numberOfAppearances;
+	
+	
+	//get the scores for round 1
+	public int getScores1() {
+		return competitorScores[0];
+	}
+	//get the scores for round 2
+	public int getScores2() {
+		return competitorScores[1];
+	}
+	//get the scores for round 3
+	public int getScores3() {
+		return competitorScores[2];
+	}
+	//get the scores for round 4
+	public int getScores4() {
+		return competitorScores[3];
+	}
+	//get the scores for round 5
+	public int getScores5() {
+		return competitorScores[4];
 	}
 	
-	public int getNumberOfAppearances() {
-		return numberOfAppearances;
-	}
-	
-	//method to generate average from array
+
+
+
+		//method to generate average from array
 		public double getAveragescore(int[] competitorScores) {
 
 			int sum = 0;
@@ -34,28 +55,35 @@ public class Dancer extends Competitor implements Competitordetails{
 		}
 	
 	
-	public String getOverallScore() {
-		double weightedScore;
+	public double getOverallScore() {
+		double OverallScore;
 			if (competitorLevel.equals("novice")) 
 			{
-				weightedScore = (getAveragescore(competitorScores) * 1.15);
+				OverallScore = (getAveragescore(competitorScores) * 1.15);
 			} 
 			else if (competitorLevel.equals("amateur")) 
 			{
-				weightedScore = (getAveragescore(competitorScores) * 1.1);
+				OverallScore = (getAveragescore(competitorScores) * 1.1);
 			} 
 			else if (competitorLevel.equals("semi-professional")) 
 			{
-				weightedScore = (getAveragescore(competitorScores) * 1.05);
+				OverallScore = (getAveragescore(competitorScores) * 1.05);
 			}
 			else 
 			{
-				weightedScore = (getAveragescore(competitorScores) * 1);
-			}
-
-		return df.format(weightedScore);
+				OverallScore = (getAveragescore(competitorScores) * 1);
+		String middle = df.format(OverallScore);
+		int score = Integer.parseInt(middle);
+		return score;
+		
+				
+		}
+		
+		return OverallScore;
+		
 	}
 
+	
 	// -- set decimal output, to 2 - only takes a string
 
 	DecimalFormat df = new DecimalFormat("#.##");
@@ -66,16 +94,25 @@ public class Dancer extends Competitor implements Competitordetails{
 				return Arrays.toString(competitorScores);
 			}
 			
+			// create a method to get short details
+			public String getshortDetails() {
+
+				return "CN " + competitorNumber + " (" + competitorName.getInititals() + ") " + "has overall score "
+						+ getOverallScore() + ".";
+			}
 			
-			// -- Full Details report
-			public String getFullDetails() {
-				return competitorName.getCompetitorName() + "(CN " + competitorNumber + ") , " + "who competes for "
-						+ competitorLocation + ". " + competitorName.getLastName() + " is a " + competitorLevel + ", "
-						+ "who has competed " + numberOfAppearances + " times for their country.\n"
-						+ "They achieved scores of " + getarrayofcompetitorScores().replace("[", "").replace("]", "") + ","
-						+ " this gives them an average score of " + getAveragescore(competitorScores)
-						+ ", weighted by level to " + getOverallScore() + ".";
-			}		
+
+
+			public String getfullDetails() {
+				return competitorName.getFullName() + "(CN " + competitorNumber + ") , " + "who competes for "
+				+ competitorLocation + ". " + competitorName.getFullName() + " is a " + competitorLevel + ", "
+				+ "who has competed " + " times for their country.\n"
+				+ "They achieved scores of " + getarrayofcompetitorScores().replace("[", "").replace("]", "") + ","
+				+ " this gives them an average score of " + getAveragescore(competitorScores)
+				+ ", weighted by level to " + getOverallScore() + ".";
+			}
+
+
 			
 	
 	

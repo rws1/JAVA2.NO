@@ -7,9 +7,9 @@ public class CompetitorManager {
 
 		CompetitorList c = new CompetitorList();
 
-		c.readFile("KnitterInput");
-		c.readFile("DancerInput");
-		c.readFile("GamerInput");
+		c.readFile("KnitterInput.csv");
+		c.readFile("DancerInput.csv");
+		c.readFile("GamerInput.csv");
 		
 		String report = c.getAllCompetitors();
 
@@ -18,13 +18,15 @@ public class CompetitorManager {
 		
 		
 			Scanner sc = new Scanner(System.in);
-			System.out.print("\nPlease enter the competitor number to retrive information: ");
-			try {
-				int competitorNumber = sc.nextInt();
-				System.out.println(c.findBycompetitorNumber(competitorNumber)); // to add this method in SuperClass
-			} catch (Exception notfound) {
-				System.out.println("\nCompetitor number invalid. Please enter a valid number");
-			}
+		/*
+		 * System.out.
+		 * print("\nPlease enter the competitor number to retrive information: "); try {
+		 * int competitorNumber = sc.nextInt();
+		 * System.out.println(c.findBycompetitorNumber(competitorNumber)); // to add
+		 * this method in SuperClass } catch (Exception notfound) {
+		 * System.out.println("\nCompetitor number invalid. Please enter a valid number"
+		 * ); }
+		 */
 		    sc.close();
 		    }
 

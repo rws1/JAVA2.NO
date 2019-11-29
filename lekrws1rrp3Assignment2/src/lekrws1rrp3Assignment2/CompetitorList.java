@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class CompetitorList {
 	
 	/**
-	 * @author Rachana Patel email: rrp3@hw.ac.uk
 	 * @version 3.6 (current version number of program)
 	 * @since 3.0 (the version of the package this class was first added to)
 	 * Creates an Arraylist 'competitorsList' from the
@@ -37,32 +36,9 @@ public class CompetitorList {
 			competitorList.add(c);
 		}
 
-		/**
-		 * Reads specified files, extracts competitor information, creating competitor
-		 * objects Add the information to list of competitors
-		 * 
-		 * @param filename is the name of the input file
-		 * @exception FileNotFoundException if the file does not exists
-		 */
+		
 
-}
-	public void readFile(String filename) {
-		try {
-			File f = new File("CompetitorInput");
-			scanner = new Scanner(f);
-			while (scanner.hasNextLine()) {
-				String inputLine = scanner.nextLine();
-				if (inputLine.length() != 0) {
-					processLine(inputLine);
-				}
-
-			}
-
-		} catch (FileNotFoundException fnf) {
-			System.out.println(filename + " not found ");
-			System.exit(0);
-		}
-	}
+	
 
 	
 	
@@ -81,7 +57,7 @@ public class CompetitorList {
 			
 			report += String.format("%-10d", c.getcompetitorNumber());
 
-			report += String.format("%-30s", c.getshortDetails());
+			//report += String.format("%-30s", c.getshortDetails());
 			
 			report += "\n";
 		}
@@ -102,31 +78,113 @@ public class CompetitorList {
 	 */
 
 	// create method to process line from the input file
-	private void processLine(String line) {
-		try {
-			String parts[] = line.split(",");
-			Name competitorName = new Name(parts[1], parts[2], parts[3]);
-			String competitorNumber = parts[0];
-			int cnum = Integer.parseInt(competitorNumber);
-			String competitorLevel = parts[4];
-			String competitorLocation = parts[5];
-			String competitorAge = parts[7];
-			int cage = Integer.parseInt(competitorAge);
-			String[] cS = parts[8].split(",");  
-			int competitorScores = cS.length;
-			int[] competitorScores = new int[competitorScores];
-			for (int i = 0; i < competitorScores; i++) {
-				competitorScores[i] = Integer.parseInt(cS[i]);
-			String sNoA = parts[9];
-			int NoA = Integer.parseInt(sNoA);
-			}
+	//if else
+	
+	// create method to process line from the input file
+		private void processLine(String line) {
+			try {
+				String parts[] = line.split(","); {
+				 
+				if (parts [0] == ("Gamer")) {
+					
+					
+					Name competitorName = new Name(parts[2], parts[3], parts[4]);
+					String competitorNumber = parts[1];
+					int cnum = Integer.parseInt(competitorNumber);
+					String competitorLevel = parts[5];
+					String competitorLocation = parts[6];
+					String competitorAge = parts[7];
+					int cage = Integer.parseInt(competitorAge);
+					
 
-			Competitor c = new Competitor(cnum, competitorName, competitorLevel, competitorLocation,cage,
-					competitorScores, NoA);
-			this.add(c);
-		}
+					int scoresLength = parts.length - 8;
+					String scoresStr[] = new String[scoresLength];
+				
+					//copy from input array to string of scores
+					System.arraycopy(parts, 8, scoresStr, 0, scoresLength); 
+				
+					//convert from string array to int array
+							
+					int competitorScores[] = new int[scoresLength];
+						for(int i = 0; i < scoresLength; i++ ) {
+							competitorScores[i] = Integer.parseInt(scoresStr[i]);
+							if(competitorScores[i] > 0 && competitorScores[i] <= 5); 
+						}
+						
+						String competition = null;
+						Competitor c = new Competitor(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
+						this.add(c);
+						
+					
+					}
+						
+				else if (parts [0] == ("Dancer")) {
+				
+					Name competitorName = new Name(parts[2], parts[3], parts[4]);
+					String competitorNumber = parts[1];
+					int cnum = Integer.parseInt(competitorNumber);
+					String competitorLevel = parts[5];
+					String competitorLocation = parts[6];
+					String competitorAge = parts[7];
+					int cage = Integer.parseInt(competitorAge);
+					
 
-		// catches for exceptions - both have been tested for functionality by altering
+					int scoresLength = parts.length - 8;
+					String scoresStr[] = new String[scoresLength];
+				
+					//copy from input array to string of scores
+					System.arraycopy(parts, 8, scoresStr, 0, scoresLength); 
+				
+					//convert from string array to int array
+							
+					int competitorScores[] = new int[scoresLength];
+						for(int i = 0; i < scoresLength; i++ ) {
+							competitorScores[i] = Integer.parseInt(scoresStr[i]);
+							if(competitorScores[i] > 0 && competitorScores[i] <= 5); 
+						}
+						
+						String competition = null;
+						Competitor c = new Competitor(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
+						this.add(c);
+						
+					
+					}
+				else {
+					
+					Name competitorName = new Name(parts[2], parts[3], parts[4]);
+					String competitorNumber = parts[1];
+					int cnum = Integer.parseInt(competitorNumber);
+					String competitorLevel = parts[5];
+					String competitorLocation = parts[6];
+					String competitorAge = parts[7];
+					int cage = Integer.parseInt(competitorAge);
+					
+
+					int scoresLength = parts.length - 8;
+					String scoresStr[] = new String[scoresLength];
+				
+					//copy from input array to string of scores
+					System.arraycopy(parts, 8, scoresStr, 0, scoresLength); 
+				
+					//convert from string array to int array
+							
+					int competitorScores[] = new int[scoresLength];
+						for(int i = 0; i < scoresLength; i++ ) {
+							competitorScores[i] = Integer.parseInt(scoresStr[i]);
+							if(competitorScores[i] > 0 && competitorScores[i] <= 5); 
+						}
+						
+						String competition = null;
+						Competitor c = new Competitor(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
+						this.add(c);
+						
+					
+					}
+				
+				}				
+				
+			}	
+ 	// catches for exceptions - both have been tested for functionality by altering
 		// the input file
 		catch (NumberFormatException ohno) {
 			String error = "Number conversion error in '" + line + "'  - " + ohno.getMessage();
@@ -137,26 +195,73 @@ public class CompetitorList {
 
 		}
 	
-		
-	}
+				}
+			
 
 	
 	
-	// create method to get maximum weighted AverageScore to get the winner
+	/**
+	 * Will find maximum overall score in the list
+	 * 
+	 * @return maximum overall score value
+	 */
+		// create method to get maximum weighted AverageScore to get the winner
 	//may need to change this
 		public double getMaxoverallScore() {
 			double MaxoverallScore = 0;
+			double OverallScore = 0;
 			for (Competitor c : competitorList) {
-				double weightedAverageScore = c.getOverallScore();
-				if (weightedAverageScore > OverallScore) {
+				
+				if (c.getcompetition().equals ("Dancer") ){ 
+				   OverallScore = ((Dancer)c).getOverallScore();
+				
+				}
+				else if (c.getcompetition().equals ("Gamer") ){ 
+					OverallScore = ((Gamer)c).getOverallScore();
+					
+					}
+				else { 
+					OverallScore = ((Knitter)c).getOverallScore();
+					
+					}
+						
+				if (OverallScore > MaxoverallScore) {
 					MaxoverallScore = OverallScore;
 				}
 			}
 			return MaxoverallScore;
 		}
 		
-		
-		
+		/**
+		 * Will find competitor based on competitor number
+		 * 
+		 * @param competitorNumber competitor number from the input list
+		 * @return Short details and full details of requested competitor number
+		 */
+		public String findBycompetitorNumber(int competitorNumber) {
+			for (Competitor c : competitorList) {
+				
+				if (c.getcompetition().equals ("Dancer") ){ 
+					if (c.getcompetitorNumber() == (competitorNumber)) {
+						return "\n" + "Full details: " + "\n" + ((Dancer)c).getfullDetails();
+					}
+				}
+				else if (c.getcompetition().equals ("Gamer") ){ 
+					if (c.getcompetitorNumber() == (competitorNumber)) {
+						return "\n" + "Full details: " + "\n" + ((Gamer)c).getfullDetails();
+					}
+				}
+				else { 
+					if (c.getcompetitorNumber() == (competitorNumber)) {
+						return "\n" + "Full details: " + "\n" + ((Knitter)c).getfullDetails();
+					}
+				}
+			}
+			return "\nCompetitor " + competitorNumber + " does not exist. Please enter a valid competitor number.";
+		}
+
+
+
 
 		/**
 		 * Will find the winner of the competition based on maximum weighted average
@@ -165,21 +270,20 @@ public class CompetitorList {
 		 * @param competitorName the name of the competitor
 		 * @return Name and details of the winner
 		 */
-		// return the winner
-		public String findtheCompetitorwithhighestScore (String competitorName) {
-			String res = null;
-			for (Competitor c : competitorList) {
-				if (c.getMaxoverallScore() == (getMaxoverallScore())) {
+	/*
+	 * // return the winner //public String findtheCompetitorwithhighestScore
+	 * (String competitorName) { //String res = null; //for (Competitor c :
+	 * competitorList) { //if (c.getMaxoverallScore() == (getMaxoverallScore())) {
+	 * 
+	 * return res = "Competitor " + c.getName().getFullName() +
+	 * " has the higest score of " + getMaxoverallScore() + ".\n" +
+	 * "\nFollowing are the details of the winner: " + "\n" + c.getfullDetails(); }
+	 * } return res;
+	 * 
+	 * }
+	 */
+		
 
-					return res = "Competitor " + c.getName().getFullName()
-							+ " is the winner of Battle of Wits with the overall score of " + getMaxweightedAverageScore()
-							+ ".\n" + "\nFollowing are the details of the winner: " + "\n" + c.getfullDetails();
-				}
-			}
-			return res;
-
-		}
-	
 		/**
 		 * writes supplied text to file
 		 * 
@@ -200,7 +304,7 @@ public class CompetitorList {
 				fw.write("\n"
 						+ "Competitor                              Short Details\n");
 				fw.write(report);
-				fw.write("\n> The competitor with highest score is " + findtheCompetitorwithhighestScore());
+				//fw.write("\n> The competitor with highest score is " + c.findtheCompetitorwithhighestScore());
 					
 
 				fw.close();
@@ -217,6 +321,63 @@ public class CompetitorList {
 				ioe.printStackTrace();
 				System.exit(1);
 			}
+		}
+
+		
+		
+		
+
+		public void readFile(String string) {
+			try { 
+			switch(string) {
+			
+			case "GameInput.csv" :
+				File g = new File("GamerInput.csv");
+				scanner = new Scanner(g);
+				while (scanner.hasNextLine()) {
+					String inputLine = scanner.nextLine();
+					if (inputLine.length() != 0) {
+						processLine(inputLine);
+					}
+
+				}
+				break;
+				
+				
+			case "DancerInput.csv" :
+				File d = new File("DancerInput.csv");
+				scanner = new Scanner(d);
+				while (scanner.hasNextLine()) {
+					String inputLine = scanner.nextLine();
+					if (inputLine.length() != 0) {
+						processLine(inputLine);
+					}
+
+				}
+				break;
+				
+				
+			case "KnitterInput.csv" :
+				File k = new File("KnitterInput.csv");
+				scanner = new Scanner(k);
+				while (scanner.hasNextLine()) {
+					String inputLine = scanner.nextLine();
+					if (inputLine.length() != 0) {
+						processLine(inputLine);
+					}
+
+				}
+				break;
+				
+							
+			}
+		
+
+			} catch (FileNotFoundException fnf) {
+				System.out.println(string + " not found ");
+				System.exit(0);
+			}
+			
 		}
 
 
