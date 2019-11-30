@@ -121,7 +121,10 @@ public class Knitter extends Competitor implements Competitordetails{
 				return result;
 			}
 			
-			
+			public String toString() {
+
+				return getOverallScore() + "";
+			}
 					
 			
 

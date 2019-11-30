@@ -7,15 +7,12 @@ import java.util.Scanner;
 
 public class Gamer extends Competitor implements Competitordetails{
 	
-	private int competitorAge;
-	private Scanner scanner;
-
-
+	
 	public Gamer (String competition, int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,int competitorAge,
 			int[] competitorScores) {
 
 			super (competition, competitorNumber, competitorName, competitorLevel, competitorLocation, competitorAge, competitorScores);
-	} 
+	}
 		
 
 	public int getcompetitorAge() {
@@ -87,13 +84,18 @@ public class Gamer extends Competitor implements Competitordetails{
 			return OverallScore;
 		}
 		
+		public String toString() {
+
+			return getOverallScore() + "";
+		}
+		
+		
 		//method to print the score array
 			public String getarrayofcompetitorScores() {
 				return Arrays.toString(competitorScores);
 			}
 
-
-
+			
 		
 
 		@Override

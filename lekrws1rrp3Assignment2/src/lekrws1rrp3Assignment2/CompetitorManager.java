@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class CompetitorManager {
 	public void run() {
 
+		
 		CompetitorList c = new CompetitorList();
-
 		c.readFile("KnitterInput.csv");
 		c.readFile("DancerInput.csv");
 		c.readFile("GamerInput.csv");

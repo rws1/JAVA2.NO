@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Dancer extends Competitor implements Competitordetails{
 	
+	
 	public Dancer (String competition, int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,int competitorAge,
 			int[] competitorScores) {
 
@@ -17,7 +18,8 @@ public class Dancer extends Competitor implements Competitordetails{
 			}
 	
 	
-	
+	//public void setcompetition (String competition, String Dancer) {this.competition = Dancer;}
+	//public String toString () { return "Dancer"; }
 	
 	//get the scores for round 1
 	public int getScores1() {
@@ -82,12 +84,28 @@ public class Dancer extends Competitor implements Competitordetails{
 		return OverallScore;
 		
 	}
-
+  
+	 
 	
 	// -- set decimal output, to 2 - only takes a string
 
 	DecimalFormat df = new DecimalFormat("#.##");
 
+	
+	
+	
+
+    //overrides equals methods higher up the hierarchy
+    //first check that other object being compared IS a Dancer
+    //if so, cast to Dancer
+    //return true if equal, false otherwise
+	public boolean equals(Object other){
+    	if (!(other instanceof Dancer) )
+    		return false;
+    	Dancer otherDan = (Dancer) other;
+    	return (this.competition.equals(otherDan.competition));
+    }
+	
 	
 	//method to print the score array
 			public String getarrayofcompetitorScores() {
@@ -95,12 +113,10 @@ public class Dancer extends Competitor implements Competitordetails{
 			}
 			
 			// create a method to get short details
-			public String getshortDetails() {
+			public String toString() {
 
-				return "CN " + competitorNumber + " (" + competitorName.getInititals() + ") " + "has overall score "
-						+ getOverallScore() + ".";
+				return getOverallScore() + "";
 			}
-			
 
 
 			public String getfullDetails() {
