@@ -1,49 +1,56 @@
 THE REPORT
 
-Competitor                              Short Details
-100       CN 100 (BAH) has overall score lekrws1rrp3Assignment2.Competitor@eed1f14
-101       CN 101 (BBH) has overall score lekrws1rrp3Assignment2.Competitor@7229724f
-102       CN 102 (G M) has overall score lekrws1rrp3Assignment2.Competitor@4c873330
-103       CN 103 (D M) has overall score lekrws1rrp3Assignment2.Competitor@119d7047
-104       CN 104 (FFF) has overall score lekrws1rrp3Assignment2.Competitor@776ec8df
-105       CN 105 (P W) has overall score lekrws1rrp3Assignment2.Competitor@4eec7777
-106       CN 106 (F M) has overall score lekrws1rrp3Assignment2.Competitor@3b07d329
-107       CN 107 (KLA) has overall score lekrws1rrp3Assignment2.Competitor@41629346
-108       CN 108 (J W) has overall score lekrws1rrp3Assignment2.Competitor@404b9385
-109       CN 109 (H  ) has overall score lekrws1rrp3Assignment2.Competitor@6d311334
-110       CN 110 (VDM) has overall score lekrws1rrp3Assignment2.Competitor@682a0b20
-111       CN 111 (MAP) has overall score lekrws1rrp3Assignment2.Competitor@3d075dc0
-112       CN 112 (CCS) has overall score lekrws1rrp3Assignment2.Competitor@214c265e
-113       CN 113 (S M) has overall score lekrws1rrp3Assignment2.Competitor@448139f0
-114       CN 114 (HFB) has overall score lekrws1rrp3Assignment2.Competitor@7cca494b
-1         CN 1 (MAS) has overall score lekrws1rrp3Assignment2.Competitor@7ba4f24f
-2         CN 2 (RWS) has overall score lekrws1rrp3Assignment2.Competitor@3b9a45b3
-3         CN 3 (CAT) has overall score lekrws1rrp3Assignment2.Competitor@7699a589
-4         CN 4 (MlA) has overall score lekrws1rrp3Assignment2.Competitor@58372a00
-5         CN 5 (ASB) has overall score lekrws1rrp3Assignment2.Competitor@4dd8dc3
-6         CN 6 (KOW) has overall score lekrws1rrp3Assignment2.Competitor@6d03e736
-7         CN 7 (LEF) has overall score lekrws1rrp3Assignment2.Competitor@568db2f2
-8         CN 8 (LDJ) has overall score lekrws1rrp3Assignment2.Competitor@378bf509
-9         CN 9 (MLD) has overall score lekrws1rrp3Assignment2.Competitor@5fd0d5ae
-10        CN 10 (AEA) has overall score lekrws1rrp3Assignment2.Competitor@2d98a335
-11        CN 11 (KKA) has overall score lekrws1rrp3Assignment2.Competitor@16b98e56
-12        CN 12 (AAM) has overall score lekrws1rrp3Assignment2.Competitor@7ef20235
-13        CN 13 (ANI) has overall score lekrws1rrp3Assignment2.Competitor@27d6c5e0
-14        CN 14 (CHA) has overall score lekrws1rrp3Assignment2.Competitor@4f3f5b24
-15        CN 15 (HKM) has overall score lekrws1rrp3Assignment2.Competitor@15aeb7ab
-16        CN 16 (JMP) has overall score lekrws1rrp3Assignment2.Competitor@7b23ec81
-17        CN 17 (LIR) has overall score lekrws1rrp3Assignment2.Competitor@6acbcfc0
-18        CN 18 (ACB) has overall score lekrws1rrp3Assignment2.Competitor@5f184fc6
-19        CN 19 (LAN) has overall score lekrws1rrp3Assignment2.Competitor@3feba861
-20        CN 20 (MLG) has overall score lekrws1rrp3Assignment2.Competitor@5b480cf9
-200       CN 200 (JHF) has overall score lekrws1rrp3Assignment2.Competitor@6f496d9f
-201       CN 201 (FJB) has overall score lekrws1rrp3Assignment2.Competitor@723279cf
-202       CN 202 (LBA) has overall score lekrws1rrp3Assignment2.Competitor@10f87f48
-203       CN 203 (LMR) has overall score lekrws1rrp3Assignment2.Competitor@b4c966a
-204       CN 204 (BKR) has overall score lekrws1rrp3Assignment2.Competitor@2f4d3709
-205       CN 205 (DJR) has overall score lekrws1rrp3Assignment2.Competitor@4e50df2e
-206       CN 206 (CJG) has overall score lekrws1rrp3Assignment2.Competitor@1d81eb93
-207       CN 207 (MKK) has overall score lekrws1rrp3Assignment2.Competitor@7291c18f
-208       CN 208 (JJJ) has overall score lekrws1rrp3Assignment2.Competitor@34a245ab
-209       CN 209 (ABB) has overall score lekrws1rrp3Assignment2.Competitor@7cc355be
-210       CN 210 (FMM) has overall score lekrws1rrp3Assignment2.Competitor@6e8cf4c6
+Competitor     Short Details
+100            CN 100 (BAH) has overall score 4.67
+101            CN 101 (BBH) has overall score 3.00
+102            CN 102 (G M) has overall score 4.33
+103            CN 103 (D M) has overall score 2.67
+104            CN 104 (FFF) has overall score 3.67
+105            CN 105 (P W) has overall score 4.67
+106            CN 106 (F M) has overall score 3.67
+107            CN 107 (KLA) has overall score 5.00
+108            CN 108 (J W) has overall score 3.33
+109            CN 109 (H  ) has overall score 4.33
+110            CN 110 (VDM) has overall score 2.33
+111            CN 111 (MAP) has overall score 4.67
+112            CN 112 (CCS) has overall score 4.67
+113            CN 113 (S M) has overall score 4.00
+114            CN 114 (HFB) has overall score 3.33
+1              CN 1 (MAS) has overall score 3.33
+2              CN 2 (RWS) has overall score 3.00
+3              CN 3 (CAT) has overall score 4.00
+4              CN 4 (MlA) has overall score 2.67
+5              CN 5 (ASB) has overall score 2.00
+6              CN 6 (KOW) has overall score 2.67
+7              CN 7 (LEF) has overall score 2.67
+8              CN 8 (LDJ) has overall score 2.00
+9              CN 9 (MLD) has overall score 2.00
+10             CN 10 (AEA) has overall score 4.00
+11             CN 11 (KKA) has overall score 3.00
+12             CN 12 (AAM) has overall score 3.00
+13             CN 13 (ANI) has overall score 3.33
+14             CN 14 (CHA) has overall score 3.00
+15             CN 15 (HKM) has overall score 1.00
+16             CN 16 (JMP) has overall score 4.00
+17             CN 17 (LIR) has overall score 2.00
+18             CN 18 (ACB) has overall score 3.33
+19             CN 19 (LAN) has overall score 4.33
+20             CN 20 (MLG) has overall score 3.00
+200            CN 200 (JHF) has overall score 3.00
+201            CN 201 (FJB) has overall score 3.67
+202            CN 202 (LBA) has overall score 3.00
+203            CN 203 (LMR) has overall score 3.00
+204            CN 204 (BKR) has overall score 3.33
+205            CN 205 (DJR) has overall score 4.00
+206            CN 206 (CJG) has overall score 3.67
+207            CN 207 (MKK) has overall score 3.33
+208            CN 208 (JJJ) has overall score 3.67
+209            CN 209 (ABB) has overall score 4.00
+210            CN 210 (FMM) has overall score 4.67
+
+> The competitor with highest score is Competitor Kermit Les Amphibian has the higest score of 5.00.
+
+Full details of the competitor with highest score: 
+Kermit Les Amphibian is an Expert knitter and has come from Aberdeen to compete in the competition. 
+Kermit received the following scores for each round: 4, 4, 5, 5, 5.
+This gives Kermit an overall score of 5.00.

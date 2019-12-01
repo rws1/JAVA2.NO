@@ -2,7 +2,7 @@ package lekrws1rrp3Assignment2;
 
 import java.util.Arrays;
 
-public class Knitter extends Competitor implements Competitordetails{
+public class Knitter extends Competitor {
 	
 	public Knitter (String competition, int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,int competitorAge,
 			int[] competitorScores) {
@@ -123,22 +123,28 @@ public class Knitter extends Competitor implements Competitordetails{
 			
 			public String toString() {
 
-				return getOverallScore() + "";
+				return String.format("%.2f",getOverallScore()) + "";
 			}
-					
+				
+			
+			// create a method to get short details
+						public String getShortDetails() {
+							return "CN " + competitorNumber + " (" + competitorName.getInititals() + ") " + "has overall score " 
+						       + String.format("%.2f",getOverallScore())
+									;}
+
 			
 
 			//display full details
 			public String getfullDetails() { 
-				return "Full details for competitor " + competitorNumber + ":\n"
-						+ competitorName.getFullName() + " is an "
+				return  competitorName.getFullName() + " is an "
 						+ competitorLevel + " knitter and has come from "
 						+ competitorLocation + " to compete in the competition. \n"
 						//+ "Their favourite thing they have knitted prior to entering the competition was a '" + favouriteKnit + "'.\n"
 						+ competitorName.getfirstName() + " received the following scores for each round: "
 						+ getDisplayScores() + ".\n"
 						+ "This gives " + competitorName.getfirstName() 
-						+ " an overall score of " + String.format("%.1f",getOverallScore()) + ".";
+						+ " an overall score of " + String.format("%.2f",getOverallScore()) + ".";
 			}
 			
 				

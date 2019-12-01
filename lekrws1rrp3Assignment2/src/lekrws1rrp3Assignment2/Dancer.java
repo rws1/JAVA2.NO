@@ -1,12 +1,8 @@
 package lekrws1rrp3Assignment2;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.text.DecimalFormat;
 import java.util.Arrays;
-import java.util.Scanner;
 
-public class Dancer extends Competitor implements Competitordetails{
+public class Dancer extends Competitor {
 	
 	
 	public Dancer (String competition, int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,int competitorAge,
@@ -18,8 +14,7 @@ public class Dancer extends Competitor implements Competitordetails{
 			}
 	
 	
-	//public void setcompetition (String competition, String Dancer) {this.competition = Dancer;}
-	//public String toString () { return "Dancer"; }
+	
 	
 	//get the scores for round 1
 	public int getScores1() {
@@ -74,23 +69,21 @@ public class Dancer extends Competitor implements Competitordetails{
 			else 
 			{
 				OverallScore = (getAveragescore(competitorScores) * 1);
-		String middle = df.format(OverallScore);
-		int score = Integer.parseInt(middle);
-		return score;
-		
+			}
 				
-		}
-		
 		return OverallScore;
 		
 	}
   
 	 
 	
-	// -- set decimal output, to 2 - only takes a string
+	
 
-	DecimalFormat df = new DecimalFormat("#.##");
-
+	public String toString() {
+		
+		return "" + String.format("%.2f",getOverallScore());
+		
+	}
 	
 	
 	
@@ -113,10 +106,10 @@ public class Dancer extends Competitor implements Competitordetails{
 			}
 			
 			// create a method to get short details
-			public String toString() {
-
-				return getOverallScore() + "";
-			}
+						public String getShortDetails() {
+							return "CN " + competitorNumber + " (" + competitorName.getInititals() + ") " + "has overall score " 
+						       + String.format("%.2f",getOverallScore())
+									;}
 
 
 			public String getfullDetails() {
@@ -125,7 +118,7 @@ public class Dancer extends Competitor implements Competitordetails{
 				+ "who has competed " + " times for their country.\n"
 				+ "They achieved scores of " + getarrayofcompetitorScores().replace("[", "").replace("]", "") + ","
 				+ " this gives them an average score of " + getAveragescore(competitorScores)
-				+ ", weighted by level to " + getOverallScore() + ".";
+				+ ", weighted by level to " + String.format("%.2f",getOverallScore()) + ".";
 			}
 
 

@@ -52,15 +52,6 @@ public class Name {
 			return FirstName.substring(0, 1) + MiddleName.substring(0, 1) + LastName.substring(0, 1);
 		}
 
-		public String getCompetitorName() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		public String getLastName() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
+		
 
 }

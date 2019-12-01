@@ -9,46 +9,24 @@ import java.util.Scanner;
 
 public class CompetitorList {
 	
-	/**
-	 * @version 3.6 (current version number of program)
-	 * @since 3.0 (the version of the package this class was first added to)
-	 * Creates an Arraylist 'competitorsList' from the
-	 * input file and populates it, allows other methods to interrogate to obtain the required information. 
-	 */
-
-	
 
 		private ArrayList<Competitor> competitorList;
 		
-
 		private Scanner scanner;
-
-		// create an empty array list
+		
+						
 		public CompetitorList() {
 			competitorList = new ArrayList<Competitor>();
+			
 		}
-
-		/**
-		 * 
-		 * @param c is the competitor to be added to competitor list
-		 */
+		
+		
 		public void add(Competitor c) {
 			competitorList.add(c);
+			
 		}
-
 		
-
 	
-
-	
-	
-	
-	/**
-	 * Supplied text to writer to write a report
-	 * 
-	 * @return report with competitor information
-	 */
-
 	// method to create report with one line per person
 	public String getAllCompetitors() {
 		String report = "";
@@ -56,12 +34,10 @@ public class CompetitorList {
 		for (Competitor c : competitorList) {
 			
 			
-			report += String.format("%-10d", c.getcompetitorNumber());
+			report += String.format("%-15d", c.getcompetitorNumber());
 
-			report += String.format("%-30s",  c.getShortDetails() + c.toString());
-			
-			report += String.format("%-30s", getMaxoverallScore());
-			
+			report += String.format("%-30s",  c.getshortDetails());
+								
 			report += "\n";
 		}
 		return report;
@@ -115,8 +91,8 @@ public class CompetitorList {
 						}
 						
 						String competition = null;
-						Competitor c = new Competitor(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
-						this.add(c);
+						Competitor c = new Gamer(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
+						competitorList.add(c);
 						
 					
 					}
@@ -147,7 +123,7 @@ public class CompetitorList {
 						}
 						
 						String competition = null;
-						Competitor c = new Competitor(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
+						Competitor c = new Dancer(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
 						this.add(c);
 						
 					
@@ -178,7 +154,7 @@ public class CompetitorList {
 						}
 						
 						String competition = null;
-						Competitor c = new Competitor(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
+						Competitor c = new Knitter(competition, cnum, competitorName, competitorLevel, competitorLocation, cage, competitorScores);
 						this.add(c);
 						
 					
@@ -211,24 +187,23 @@ public class CompetitorList {
 		// create method to get maximum weighted AverageScore to get the winner
 	//may need to change this
 		public double getMaxoverallScore() {
-			System.out.println ("aaa");
 			double MaxoverallScore = 0;
 			double OverallScore = 0;
 			for (Competitor c : competitorList) {
-				System.out.println ("bbb");
 				
 				if (c instanceof Dancer){
-					System.out.println ("ccc");
-					
-				   OverallScore = ((Dancer)c).getOverallScore();
-				   System.out.println ("ddd");
+					Dancer d = (Dancer) c;
+					  OverallScore = d.getOverallScore();
+				  
 				}
-				else if (c.getcompetition().equals ("Gamer") ){ 
-					OverallScore = ((Gamer)c).getOverallScore();
+				else if (c instanceof Gamer){ 
+					Gamer g = (Gamer) c;
+					    OverallScore = g.getOverallScore();
 					
 					}
-				else { 
-					OverallScore = ((Knitter)c).getOverallScore();
+ 				else if(c instanceof Knitter){ 
+ 					Knitter k = (Knitter) c;
+					    OverallScore = k.getOverallScore();
 					
 					}
 						
@@ -236,9 +211,17 @@ public class CompetitorList {
 					MaxoverallScore = OverallScore;
 				}
 			}
-			System.out.println ("aaa");
+			
 			return MaxoverallScore;
 		}
+	
+		
+		
+		
+		
+		
+		
+		
 		
 		/**
 		 * Will find competitor based on competitor number
@@ -249,19 +232,22 @@ public class CompetitorList {
 		public String findBycompetitorNumber(int competitorNumber) {
 			for (Competitor c : competitorList) {
 				
-				if (c.getcompetition().equals ("Dancer") ){ 
+				if (c instanceof Dancer){
+					Dancer d = (Dancer) c;
 					if (c.getcompetitorNumber() == (competitorNumber)) {
-						return "\n" + "Full details: " + "\n" + ((Dancer)c).getfullDetails();
+						return "\n" + "Full details: " + "\n" + d.getfullDetails();
 					}
 				}
-				else if (c.getcompetition().equals ("Gamer") ){ 
+				else if (c instanceof Gamer){
+					     Gamer g = (Gamer) c;
 					if (c.getcompetitorNumber() == (competitorNumber)) {
-						return "\n" + "Full details: " + "\n" + ((Gamer)c).getfullDetails();
+						return "\n" + "Full details: " + "\n" + g.getShortDetails();
 					}
 				}
-				else { 
+				else if (c instanceof Knitter){
+				     Knitter k = (Knitter) c; 
 					if (c.getcompetitorNumber() == (competitorNumber)) {
-						return "\n" + "Full details: " + "\n" + ((Knitter)c).getfullDetails();
+						return "\n" + "Full details: " + "\n" + k.getfullDetails();
 					}
 				}
 			}
@@ -294,33 +280,46 @@ public class CompetitorList {
 
 	 // return the winner 
 	public String findtheCompetitorwithhighestScore
-	 (String competitorName) { 
-		 String res = null; for (Competitor c :	  competitorList) { 
-			 if (c.getcompetition().equals ("Dancer") ){ 
-				 if (((Dancer)c).getOverallScore() == getMaxoverallScore())
-					 return res = "Competitor " + c.getName().getFullName() +
-					  " has the higest score of " + getMaxoverallScore() + ".\n" +
-					  "\nFollowing are the details of the winner: " + "\n" + ((Dancer)c).getfullDetails(); 
-				 }	 
+	 (String res) { 
+			 for (Competitor c : competitorList) { 
+			 if (c instanceof Dancer){
+					Dancer d = (Dancer) c;
+							
+				        if (d.getOverallScore() == getMaxoverallScore())
+					         return res = "Competitor " + c.getName().getFullName() +
+					         " has the higest score of " + String.format("%.2f",getMaxoverallScore()) + ".\n" +
+					         "\nFull details of the competitor with highest score: " + "\n" + d.getfullDetails();
+				        
+				         }	 
 			 
-		     else if (c.getcompetition().equals ("Gamer") ){ 
-			 if (((Gamer)c).getOverallScore() == getMaxoverallScore())
-				 return res = "Competitor " + c.getName().getFullName() +
-				  " has the higest score of " + getMaxoverallScore() + ".\n" +
-				  "\nFollowing are the details of the winner: " + "\n" + ((Gamer)c).getfullDetails(); 
+		     else if (c instanceof Gamer){
+					    Gamer g = (Gamer) c;
+					     					
+			               if (g.getOverallScore() == getMaxoverallScore())
+				              return res = "Competitor " + g.getName().getFullName() +
+				              " has the higest score of " + String.format("%.2f",getMaxoverallScore()) + ".\n" +
+				              "\nFull details of the competitor with highest score: " + "\n" + g.getfullDetails(); 
+			              
+							
 			       }	
-		     else{
-		    	 if (((Knitter)c).getOverallScore() == getMaxoverallScore())
-					 return res = "Competitor " + c.getName().getFullName() +
-					  " has the higest score of " + getMaxoverallScore() + ".\n" +
-					  "\nFollowing are the details of the winner: " + "\n" + ((Knitter)c).getfullDetails();  
+		     else if (c instanceof Knitter){
+					Knitter k = (Knitter) c;
+					
+					
+		    	         if (k.getOverallScore() == getMaxoverallScore())
+					       return res = "Competitor " + k.getName().getFullName() +
+					       " has the higest score of " + String.format("%.2f",getMaxoverallScore()) + ".\n" +
+					       "\nFull details of the competitor with highest score: " + "\n" + k.getfullDetails();  
+		    	        
+		 				
 		     }
-		
-			
+				
 				
 	 
 	 }
+			 
 		return res;
+		
 	
 	}
 	
@@ -333,7 +332,7 @@ public class CompetitorList {
 		 *                                  specified pathname has failed
 		 * @exception IOExceptionif         stream to file cannot be written to or
 		 *                                  closed
-		 * @param rrp3Report the name of the file to be written to
+		 * @param Report the name of the file to be written to
 		 * @param report     the text to be written to file
 		 */
 		// writes text to file to generate report
@@ -344,9 +343,9 @@ public class CompetitorList {
 				fw = new FileWriter(Report);
 				fw.write("THE REPORT\n");
 				fw.write("\n"
-						+ "Competitor                              Short Details\n");
+						+ "Competitor     Short Details\n");
 				fw.write(report);
-				//fw.write("\n> The competitor with highest score is " + findtheCompetitorwithhighestScore(report));
+				fw.write("\n> The competitor with highest score is " + findtheCompetitorwithhighestScore(report));
 					
 
 				fw.close();

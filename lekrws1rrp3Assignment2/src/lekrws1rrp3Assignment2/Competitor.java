@@ -1,6 +1,6 @@
 package lekrws1rrp3Assignment2;
 
-public class Competitor {
+ public abstract class Competitor {
 	protected String competition;
 	protected int competitorNumber;// create a method to get short details
 	protected Name competitorName;
@@ -10,7 +10,7 @@ public class Competitor {
  	protected int[] competitorScores;
 	
 	 public Competitor(String C, int cNo, Name cNa, String cL, String cLo, int cage, int[] cS) {
-		 competition = C;	
+		    competition = C;	
 			competitorNumber = cNo;
 			competitorName = cNa;
 			competitorLevel = cL;
@@ -36,16 +36,16 @@ public class Competitor {
 	 public void setcompetitorLocation (String competitorLocation) {this.competitorLocation = competitorLocation; }
 	 public void setcompetitorScores (int [] competitorScores) { this.competitorScores = competitorScores;}
 
-	public String getShortDetails() {
-		return "CN " + competitorNumber + " (" + competitorName.getInititals() + ") " + "has overall score "
-				;
+	// create a method to get short details
+		public String getshortDetails() {
+			return "CN " + competitorNumber + " (" + competitorName.getInititals() + ") " + "has overall score " + toString()
+					;}
+
+		
+		public abstract double getOverallScore();
+		public abstract String getfullDetails();
 		
 		
-	}
-
-	
-
-	
 	}
 
 	
@@ -56,7 +56,7 @@ public class Competitor {
  
  
 
- //getcompetitorwithhighest score
+ 
  
  
  

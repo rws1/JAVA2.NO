@@ -1,11 +1,8 @@
 package lekrws1rrp3Assignment2;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Arrays;
-import java.util.Scanner;
 
-public class Gamer extends Competitor implements Competitordetails{
+public class Gamer extends Competitor {
 	
 	
 	public Gamer (String competition, int competitorNumber, Name competitorName, String competitorLevel, String competitorLocation,int competitorAge,
@@ -84,9 +81,11 @@ public class Gamer extends Competitor implements Competitordetails{
 			return OverallScore;
 		}
 		
+		
+		
 		public String toString() {
-
-			return getOverallScore() + "";
+			return "" + String.format("%.2f",getOverallScore());
+			
 		}
 		
 		
@@ -96,14 +95,22 @@ public class Gamer extends Competitor implements Competitordetails{
 			}
 
 			
+			
+			// create a method to get short details
+						public String getShortDetails() {
+							return "CN " + competitorNumber + " (" + competitorName.getInititals() + ") " + "has overall score "
+						           + String.format("%.2f",getOverallScore())
+									;}
+
+					
 		
 
-		@Override
+	
 		public String getfullDetails() {
 			return "Competitor number " + competitorNumber + ", " + "name " + competitorName.getFullName() + ".\n"
 					+ competitorName.getfirstName() + " is a " + competitorLevel + " aged " + competitorAge + " from " + competitorLocation + " and received these scores: "
-					+ getarrayofcompetitorScores().replace("[", " ").replace("]", " ") + "\nThis gives them an overall score of "
-					+ getOverallScore() + ".";
-		}
+				       + getarrayofcompetitorScores().replace("[", " ").replace("]", " ") + "\nThis gives them an overall score of "
+					       + String.format("%.2f",getOverallScore()) + ".";
+	}
 
 }
