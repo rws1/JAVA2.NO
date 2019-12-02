@@ -1,0 +1,56 @@
+THE REPORT
+
+Competitor     Short Details
+100            CN 100 (BAH) has overall score 4.67
+101            CN 101 (BBH) has overall score 3.00
+102            CN 102 (G M) has overall score 4.33
+103            CN 103 (D M) has overall score 2.67
+104            CN 104 (FFF) has overall score 3.67
+105            CN 105 (P W) has overall score 4.67
+106            CN 106 (F M) has overall score 3.67
+107            CN 107 (KLA) has overall score 5.00
+108            CN 108 (J W) has overall score 3.33
+109            CN 109 (H  ) has overall score 4.33
+110            CN 110 (VDM) has overall score 2.33
+111            CN 111 (MAP) has overall score 4.67
+112            CN 112 (CCS) has overall score 4.67
+113            CN 113 (S M) has overall score 4.00
+114            CN 114 (HFB) has overall score 3.33
+1              CN 1 (MAS) has overall score 2.30
+2              CN 2 (RWS) has overall score 3.45
+3              CN 3 (CAT) has overall score 3.15
+4              CN 4 (MlA) has overall score 2.00
+5              CN 5 (ASB) has overall score 1.15
+6              CN 6 (KOW) has overall score 2.30
+7              CN 7 (LEF) has overall score 2.00
+8              CN 8 (LDJ) has overall score 2.10
+9              CN 9 (MLD) has overall score 1.10
+10             CN 10 (AEA) has overall score 3.00
+11             CN 11 (KKA) has overall score 2.30
+12             CN 12 (AAM) has overall score 2.10
+13             CN 13 (ANI) has overall score 2.00
+14             CN 14 (CHA) has overall score 2.30
+15             CN 15 (HKM) has overall score 0.00
+16             CN 16 (JMP) has overall score 3.00
+17             CN 17 (LIR) has overall score 1.00
+18             CN 18 (ACB) has overall score 2.20
+19             CN 19 (LAN) has overall score 3.15
+20             CN 20 (MLG) has overall score 1.00
+200            CN 200 (JHF) has overall score 3.00
+201            CN 201 (FJB) has overall score 3.50
+202            CN 202 (LBA) has overall score 3.50
+203            CN 203 (LMR) has overall score 2.50
+204            CN 204 (BKR) has overall score 2.50
+205            CN 205 (DJR) has overall score 4.50
+206            CN 206 (CJG) has overall score 4.50
+207            CN 207 (MKK) has overall score 3.75
+208            CN 208 (JJJ) has overall score 5.25
+209            CN 209 (ABB) has overall score 4.50
+210            CN 210 (FMM) has overall score 3.75
+
+> The competitor with highest score is Competitor Joel Johnson Johhanson has the higest score of 5.25.
+
+Full details of the competitor with highest score: 
+Competitor number 208, name Joel Johnson Johhanson.
+Joel is a Professional aged 23 from India and received these scores:  4, 3, 4, 2, 3 
+This gives them an overall score of 5.25.
