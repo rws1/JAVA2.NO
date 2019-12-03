@@ -79,9 +79,12 @@ public class GUIOne extends JPanel implements ActionListener {
 		 JPanel westPanel = new JPanel();
 		 westPanel.setLayout(new GridLayout(1,1));
 		 
-		 //setup label
-		 westPanel.add(new JLabel("<html>Enter a competitor number from 1 to 20 for Dancers, 100 to 114 for Knitters and 200 to 210 for Gamers</html>"
-		 		));
+		 //setup label and add to west panel
+		 westPanel.add(new JLabel("<html>Enter a competitor number:<br/>"
+					+ "<li>1 to 20 for Dancers <br/>"
+					+ "<li>100 to 114 for Knitters <br/>"
+					+ "<li>200 to 210 for Gamers</html>"
+		 ));
 		  
 		 //add west panel to the content pane
 		 this.add(westPanel, BorderLayout.WEST);
