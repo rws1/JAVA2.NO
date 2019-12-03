@@ -6,7 +6,7 @@ package lekrws1rrp3Assignment2;
  * and display either that competitor's
  * full details or short details
  * On close it writes the report to a text file.
- * The Competitor class is inherited by Dancer, Gamer and Knitter classes.
+ * The Competitor class is an abstract class and is inherited by Dancer, Gamer and Knitter classes.
  * @author Lynsey Kirk, Rachana Patel, Rob Stone
  */
 
