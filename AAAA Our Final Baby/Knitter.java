@@ -190,7 +190,7 @@ public class Knitter extends Competitor {
 
 	/**
 	 * Returns a string containing the full details of the competitor
-	 * @return  the competitor's short details
+	 * @return  the competitor's full details
 	 */
 	public String getfullDetails() {
 		return competitorName.getFullName() + " is an " + competitorLevel + " knitter and has come from "
@@ -201,5 +201,4 @@ public class Knitter extends Competitor {
 				+ getarrayofcompetitorScores() + ".\n" + "This gives " + competitorName.getfirstName()
 				+ " an overall score of " + String.format("%.2f", getOverallScore()) + ".";
 	}
-
 }
