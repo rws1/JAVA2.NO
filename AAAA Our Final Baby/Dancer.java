@@ -2,7 +2,7 @@ package lekrws1rrp3Assignment2;
 
 /** Software Engineering Foundations
  * Assignment 2
- * The class for the competitors who are in the Danicng competition.
+ * The class for the competitors who are in the Dancing competition.
  * Constructs the Dancer object and calculates the various
  * statistics and detail reportS required for the application.
  * @author Lynsey Kirk, Rachana Patel, Rob Stone
@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class Dancer extends Competitor {
 
 	/**
-	 * The constructor for the Knitter class
+	 * The constructor for the Dancing class
 	 * 
 	 * @param competition  the competition the competitor is in
 	 * @param competitorNumber  the competitor's competitor number
