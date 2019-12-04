@@ -16,7 +16,8 @@ import java.awt.event.KeyEvent;
 
 public class tabbedPane extends JPanel {
 	/**
-	 * Create the tabbedPane GUI
+	 * Adds a tabbedPane component that lets the user switch between a group of components by clicking on a tab with a given title and/or icon.
+	 * Tabs/components are added to a TabbedPane object by using the addTab and insertTab methods. Tabs are organised using the setMnemonicAT method. 
 	 * @param list
 	 */
 	public tabbedPane(CompetitorList list) {
@@ -68,7 +69,9 @@ public class tabbedPane extends JPanel {
 	}
 
 	/**
-	 * Creates the images to be used on the GUI
+	 * An implementation of the Icon interface that paints Icons from Images. 
+	 * Imagea from filenames are preloaded using MediaTracker to monitor the loaded state of the image.
+	 * Can take image URLs but will throw an error if not found
 	 * @param path
 	 * @returnImageIcon, or null if the path was invalid
 	 */
